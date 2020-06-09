@@ -14,9 +14,17 @@ endif()
 set(TARGET lmfit2)
 
 set(SRC
-	main.cpp
 	lmfit.h
 	lmfit.c
 )
 
-add_executable(${TARGET} ${SRC})
+add_library(${TARGET} ${SRC})
+
+install(TARGETS ${TARGET}
+    DESTINATION ${CMAKE_INSTALL_PREFIX}
+)
+
+INSTALL(FILES
+	lmfit.h
+	DESTINATION ${CMAKE_INSTALL_PREFIX}
+)
